@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}">
+</head>
+<body>
+
+<div class="container">
+    <nav class="navbar navbar-expand navbar-light bg-light justify-content-end">
+        <a class="navbar-brand" href="#">Fast Neural Transfer</a>
+
+        <div class="nav navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">How this works</a>
+            <a class="nav-item nav-link" href="#">About me</a>
+        </div>
+    </nav>
+</div>
+
+
+<div class="container">
+    <form action="" method="post" novalidate enctype="multipart/form-data">
+        {{ form.hidden_tag() }}
+
+        <div class="form-group">
+            {{ form.upload_image.label }}
+            {{ form.upload_image(size=32, class_="form-control-file") }}
+        </div>
+
+        <div class="form-group">
+            {{ form.style.label }}
+            {{ form.style(class_="custom-select") }}
+        </div>
+
+        <div class="card-deck">
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='style-images/candy.jpg')}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Candy</h4>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='style-images/mosaic.jpg')}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Mosaic</h4>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='style-images/rain-princess-cropped.jpg')}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Rain Princess</h4>
+                </div>
+            </div>
+            <div class="card">
+                <img class="card-img-top" src="{{ url_for('static', filename='style-images/udnie.jpg')}}" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">Udnie</h4>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            {{ form.submit(class_="btn btn-primary btn-lg btn-block", id="submit_btn") }}
+        </div>
+
+
+    </form>
+
+    {% if gen_img_name %}
+
+        <div class="card-deck">
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename=orig_img_name) }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Your Original Image!</h5>
+              </div>
+            </div>
+
+            <div class="card" style="width: 18rem;">
+              <img class="card-img-top" src="{{ url_for('static', filename=gen_img_name) }}" alt="Card image cap">
+              <div class="card-body">
+                <h5 class="card-title">Your Master Piece!</h5>
+              </div>
+            </div>
+
+        </div>
+
+    {% endif %}
+
+
+
+</div>
+
+
+
+
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
