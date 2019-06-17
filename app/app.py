@@ -18,6 +18,7 @@ STYLE_MODELS = {
     "mosaic": "mosaic.pth",
     "rain_princess": "rain_princess.pth",
     "udnie": "udnie.pth",
+    "sketch": "sketch.pth",
 }
 
 UPLOAD_PATH = os.path.join(app.static_folder, 'tmp_img', "upload_image")
